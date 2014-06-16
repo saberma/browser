@@ -47,7 +47,7 @@ class Browser
     private
 
     def msie?
-      !!(ua =~ /MSIE/ && ua !~ /Opera/)
+      !!(ua =~ /MSIE/ && ua !~ /Opera/ && ua !~ /ms-office/)
     end
 
     def modern_ie?

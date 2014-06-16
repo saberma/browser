@@ -228,6 +228,15 @@ describe Browser do
     assert_equal "11", @browser.version
   end
 
+  it "detects ie from ms office" do
+    @browser.ua = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Tablet PC 2.0; .NET4.0C; .NET4.0E; ms-office)"
+
+    assert_equal "Other", @browser.name
+    assert ! @browser.ie?
+    assert_equal "7.0", @browser.full_version
+    assert_equal "7", @browser.version
+  end
+
   it "detects opera" do
     @browser.ua = $ua["OPERA"]
 
